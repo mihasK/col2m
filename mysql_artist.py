@@ -15,17 +15,8 @@ from sqlalchemy.orm import sessionmaker, scoped_session
 
 import settings
 
-mysql_url = 'mysql://{}:{}@{}:{}/{}'.format(
-    settings.MYSQL_USERNAME,
-    settings.MYSQL_PASSWORD,
-    settings.MYSQL_HOST,
-    settings.MYSQL_PORT,
-    settings.MYSQL_DBNAME
-)
-
 Model = declarative_base()
-
-mysql_engine = create_engine(mysql_url)
+mysql_engine = create_engine('postgres://zobzgeddxcapwp:gQvhHVvFqORe6dsDqUUwLfAqhd@ec2-54-197-241-96.compute-1.amazonaws.com:5432/d2efq4ja8ot0s9')
 Session = scoped_session(sessionmaker(bind=mysql_engine))
 
 
